@@ -13,8 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
+
+        /*
+            id (PK)               : INT : AUTOINCREMENT : NOT NULL
+            conversation_id (FK)  : INT : NOT NULL
+            message_content       : TEXT : NOT NULL
+        */
+
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('conversation_id')->constrained()->cascadeOnDelete();
+            $table->text('message_content');
             $table->timestamps();
         });
     }

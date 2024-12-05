@@ -13,18 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        /*
+        /* 
             id (PK)          : INT : AUTOINCREMENT : NOT NULL
-            username         : VARCHAR(50) : NOT NULL
-            email            : VARCHAR(255) : UNIQUE
-            password         : VARCHAR(255) : NOT NULL
-         */
-        Schema::create('users', function (Blueprint $table) {
+            user_id (FK)     : INT : NOT NULL  
+            message_id (FK)  : INT : NOT NULL  
+            read_at          : TIMESTAMP : NULL
+        */
+        Schema::create('user_message', function (Blueprint $table) {
             $table->id();
-            $table->string('username', length: 50);
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->timestamps();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('message_id')->constrained()->cascadeOnDelete();
+            $table->timestamp('read_at')->nullable();
         });
     }
 
@@ -35,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('user_message');
     }
 };

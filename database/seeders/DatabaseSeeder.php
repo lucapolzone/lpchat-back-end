@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
                 ConversationSeeder::class,
 				MessageSeeder::class,
 				UserMessageSeeder::class,
+				UserConversationSeeder::class,
+				NotificationSeeder::class,
 			]);
 
     }

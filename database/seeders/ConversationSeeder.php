@@ -15,7 +15,7 @@ class ConversationSeeder extends Seeder
      */
     public function run()
     {
-        //
-        Conversation::create();
+        $conversation1 = Conversation::create();
+        $conversation2 = Conversation::create();
     }
 }

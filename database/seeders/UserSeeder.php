@@ -15,16 +15,20 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $user = new User();
-        $user->username = 'LucaPolz';
-        $user->email = 'luca@email.it';
-        $user->password = 'ciaociao12';
-        $user->save();
+        $users = [
+					['username' => 'LucaManda', 'email' => 'luca@email.it', 'password' => 'ciaociao12'],
+					['username' => 'MarioRiceve', 'email' => 'mario@email.it', 'password' => 'ciaomario20'],
+					['username' => 'PaoloManda', 'email' => 'paolo@email.it', 'password' => 'ciaopaolo25'],
+					['username' => 'SaraRiceve', 'email' => 'sara@email.it', 'password' => 'ciaosara30'],
+        ];
 
-        $user = new User();
-        $user->username = 'MarioRiceve';
-        $user->email = 'mario@email.it';
-        $user->password = 'ciaomario20';
-        $user->save();
+				foreach ($users as $user) {
+					User::create([
+						'username' => $user['username'],
+						'email' => $user['email'],
+						'password' => $user['password'],
+					]);
+
+				}
     }
 }

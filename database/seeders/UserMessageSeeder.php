@@ -16,16 +16,20 @@ class UserMessageSeeder extends Seeder
      */
     public function run()
     {
-        // Recupera utenti
-        $luca = User::where('username', 'LucaPolz')->first();
+        $luca = User::where('username', 'LucaManda')->first();
         $mario = User::where('username', 'MarioRiceve')->first();
+        $paolo = User::where('username', 'PaoloManda')->first();
+        $sara = User::where('username', 'SaraRiceve')->first();
 
-        // Recupera messaggi
-        $message1 = Message::where('message_content', 'Questo è un messaggio')->first();
-        $message2 = Message::where('message_content', 'Ottimo, ho ricevuto il tuo messaggio')->first();
+        $messageIds = Message::pluck('id');
 
-        // Collega messaggi agli utenti
-        $luca->messages()->attach($message1->id, ['read_at' => now()]);
-        $mario->messages()->attach($message2->id, ['read_at' => now()]);
+        // Associa i messaggi alla prima conversazione
+        $luca->messages()->attach($messageIds->get(0), ['read_at' => now()]);
+        $mario->messages()->attach($messageIds->get(1), ['read_at' => now()]);
+
+        // Associa i messaggi alla seconda conversazione
+        $paolo->messages()->attach($messageIds->get(2), ['read_at' => now()]);
+        $sara->messages()->attach($messageIds->get(3), ['read_at' => now()]);
+
     }
 }

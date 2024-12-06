@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->text('notification_message');
             $table->timestamp('read_at')->nullable();
+            $table->timestamps();
         });
     }
 

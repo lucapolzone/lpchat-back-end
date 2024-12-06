@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ConversationController;
+use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,10 +22,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Users API routes
-Route::get('/users', [UserController::class, 'index']);
-Route::get('/users/{id}', [UserController::class, 'show']);
+Route::get('/users', [UserController::class, 'index']); //Restituisce tutti gli utenti.
+Route::get('/users/{id}', [UserController::class, 'show']); //Restituisce i dettagli di un utente specifico
 
 // Conversations API routes
-Route::get('/conversations', [ConversationController::class, 'index']);
-Route::get('/conversations/{id}', [ConversationController::class, 'show']);
-Route::post('/conversations', [ConversationController::class, 'store']);
+Route::get('/conversations', [ConversationController::class, 'index']); //Restituisce tutte le conversazioni.
+Route::get('/conversations/{id}', [ConversationController::class, 'show']); //Restituisce i dettagli di una conversazione specifica.
+Route::post('/conversations', [ConversationController::class, 'store']); //Crea una nuova conversazione
+
+// Messages API routes
+Route::post('/messages', [MessageController::class, 'store']);  // Crea un nuovo messaggio
+Route::get('/messages/{conversationId}', [MessageController::class, 'index']);  // Restituisce i messaggi di una conversazione

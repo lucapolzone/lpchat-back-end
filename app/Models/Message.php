@@ -9,8 +9,10 @@ class Message extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['conversation_id', 'message_content'];
+
     public function users() {
-			return $this->belongsToMany(User::class);
+			return $this->belongsToMany(User::class, 'user_message');
 
     }
 

@@ -19,13 +19,16 @@ class MessageSeeder extends Seeder
     {
 
 			
-			$conversations = Conversation::all();
+            $conversation = Conversation::firstOrCreate([]);
 
-			foreach ($conversations as $conversation) {
-				$message = new Message();
-				$message->conversation_id = $conversation->id;
-				$message->message_content = 'Questo è un messaggio';
-				$message->save();
-			}
+            $message1 = new Message();
+            $message1->conversation_id = $conversation->id;
+            $message1->message_content = 'Questo è un messaggio';
+            $message1->save();
+
+            $message2 = new Message();
+            $message2->conversation_id = $conversation->id;
+            $message2->message_content = 'Ottimo, ho ricevuto il tuo messaggio';
+            $message2->save();
     }
 }

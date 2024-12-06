@@ -15,7 +15,7 @@ class User extends Model
     }
 
     public function messages() {
-			return $this->belongsToMany(Message::class);
+			return $this->belongsToMany(Message::class, 'user_message')->withPivot('read_at');
       }
 
     public function conversations() {

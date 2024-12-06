@@ -25,4 +25,6 @@ Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/{id}', [UserController::class, 'show']);
 
 // Conversations API routes
+Route::get('/conversations', [ConversationController::class, 'index']);
 Route::get('/conversations/{id}', [ConversationController::class, 'show']);
+Route::post('/conversations', [ConversationController::class, 'store']);

@@ -14,10 +14,12 @@ class ConversationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function index()
-    // {
-    //     //
-    // }
+    public function index()
+    {
+        $conversations = Conversation::all();  // Puoi usare un filtro per restituire solo le conversazioni dell'utente loggato
+        $response = response()->json(ConversationResource::collection($conversations));
+        return $response;
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -27,7 +29,22 @@ class ConversationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Valida i dati in ingresso
+        $validatedData = $request->validate([
+            'user_ids' => 'required|array',  // Array degli id degli utenti
+            'user_ids.*' => 'exists:users,id', // Ogni id deve esistere nella tabella users
+        ]);
+
+        // Crea la nuova conversazione
+        $conversation = Conversation::create();
+
+        // Associa gli utenti alla conversazione
+        $conversation->users()->attach($validatedData['user_ids']);  
+
+        // Restituisce la risposta JSON
+        $response = response()->json(new ConversationResource($conversation), 201);
+        // dd($response);
+        return $response;
     }
 
     /**

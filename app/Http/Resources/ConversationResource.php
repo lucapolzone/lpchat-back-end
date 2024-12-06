@@ -14,6 +14,12 @@ class ConversationResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+					'id' => $this->id,
+					'users' => UserResource::collection($this->whenLoaded('users')), // Carica gli utenti
+					'messages' => MessageResource::collection($this->whenLoaded('messages')), // Carica i messaggi
+					'created_at' => $this->created_at,
+					'updated_at' => $this->updated_at,
+        ];
     }
 }

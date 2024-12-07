@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\MessageSent;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\MessageResource;
 use App\Models\Message;
@@ -49,8 +50,13 @@ class MessageController extends Controller
         // Associa gli utenti al messaggio tramite la tabella pivot user_message
         $message->users()->attach($validatedData['user_ids']);
 
-        //Restituisce la response JSON con i dati del messaggio creato
-        $response = response()->json(new MessageResource($message), 201);
+        // Fa partire l'evento per inviare il messaggio ai client
+        event(new MessageSent($message));
+
+        // $response = response()->json($message, 201); 
+        $response = response()->json(new MessageResource($message), 201); //Restituisce la response JSON con i dati del messaggio creato
+        // dd($response);
+        // return response()->json($message, 201); 
         return $response;
     }
 
@@ -60,10 +66,10 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+    // public function show($id)
+    // {
+    //     //
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -72,10 +78,10 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    // public function update(Request $request, $id)
+    // {
+    //     //
+    // }
 
     /**
      * Remove the specified resource from storage.
@@ -83,8 +89,8 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+    // public function destroy($id)
+    // {
+    //     //
+    // }
 }

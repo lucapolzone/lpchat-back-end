@@ -16,7 +16,8 @@ class ConversationController extends Controller
      */
     public function index()
     {
-        $conversations = Conversation::all();  // Puoi usare un filtro per restituire solo le conversazioni dell'utente loggato
+        $conversations = Conversation::with(['users', 'messages'])->get(); // Carica utenti e messaggi
+        // $conversations = Conversation::all();  // Puoi usare un filtro per restituire solo le conversazioni dell'utente loggato
         $response = response()->json(ConversationResource::collection($conversations));
         return $response;
     }

@@ -1,66 +1,82 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# LPChat
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Descrizione
+Pensata come un “Minimum Viable Product”, è un’app di messaggistica in tempo reale con form di login, una dashboard dove vedere gli utenti registati e dove è possibile aprire una chat-room con loro. Nella dashboard è anche possibile vedere tramite notifica se ci sono messaggi ricevuti non ancora letti.
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Stack del progetto
+![Laravel](./img_readme/laravel.svg)
+![Vite](./img_readme/pusher.svg)
+![Vue](./img_readme/vue.svg)
+![Vite](./img_readme/pinia.svg)
+![Vite](./img_readme/vite.svg)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
+<b>1. Autenticazione e gestione utenti</b>
+- Login e registrazione utenti (registrazione, login, gestione sessioni). 
+<br/><br/>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<b>2. Dashboard e chat-room</b><br/>
+- Dashboard principale per visualizzare le chat-room con gli utenti.
+- Badge di notifica accanto a ogni conversazione per mostrare quanti messaggi non letti ci sono.<br/><br/>
 
-## Learning Laravel
+<b>3. Messaggistica e notifiche</b>
+- Scambio di messaggi in tempo reale.
+- Notifiche push in tempo reale che informano gli utenti quando arrivano nuovi messaggi.<br/><br/>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Back-end
+<b>1. Laravel:</b>
+- Fornirà il backend dell'applicazione con le <b>API Resources</b> per utenti, conversazioni, notifiche e messaggi.
+- Gestirà l'autenticazione degli utenti e la validazione dei dati.
+- Si occuperà di archiviare i messaggi nel database.<br /><br />
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+<b>2. Pusher</b>
+- Pusher si occuperà di propagare in tempo reale gli eventi relativi ai nuovi messaggi e alle notifiche, inviando gli aggiornamenti al front-end
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Front-end
+<b>1. Vue</b>
+- I componenti Vue saranno sviluppati con la sintassi <b>Composition API</b> e il progetto sarà configurato tramite <b>Vite</b> per lo scaffolding.<br /><br />
 
-## Laravel Sponsors
+<b>2. Pinia</b>
+- Pinia verrà utilizzato per gestire lo stato globale dell'applicazione. Ci sarà uno store che contiene i dati relativi ai messaggi, le notifiche e le conversazioni.
+-	Verrà usato <b>Pinia Plugin PersistedState</b> per mantenere lo stato della chat anche dopo un aggiornamento della pagina, mantenendo i messaggi e le notifiche persistenti.<br /><br />
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<b>3. Pusher:</b>
+-	Pusher verrà configurato per ricevere gli eventi dal back-end (invio di un nuovo messaggio e notifiche in dashboard). Quando gli eventi saranno ricevuti, verrà aggiornato lo store di Pinia per mantenere i dati sincronizzati.
+-	Quando Pinia aggiornerà lo stato, ciò aggiornerà automaticamente i componenti, senza dover ricaricare la pagina.<br /><br />
 
-### Premium Partners
+## Progettazione Database
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+<img src="./img_readme/LPChat-DB.png" alt="LPChat-DB" width="800"/>
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Stato attuale del progetto
+![Work In Progress](./img_readme/work-in-progress.png)
 
-## Code of Conduct
+- Tramite il comando `php artisan make:request` ho aggiunto la validazione per la login dell'utente
+- Il database, tramite `Seeder`, è popolato con quattro utenti, due conversazioni e quattro messaggi.
+- È possibile testare queste <b>API resources:</b><br />
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+  1. <b>Risorsa: User</b>
+    -	<b>GET | /api/users</b> - Restituisce l'elenco di tutti gli utenti registrati - <i>Metodo index()</i>
+    -	<b>GET | /api/users/{id}</b> - Mostra i dettagli di un utente specifico - <i>Metodo show()</i><br /><br />
+  2. <b>Risorsa: Conversation</b>
+  -	<b>POST | /api/conversations</b> - Crea una nuova conversazione one-to-one - <i>Metodo store()</i>
+  -	<b>GET | /api/conversations</b> - Restituisce i dettagli di tutte le conversazioni, inclusi i partecipanti e i messaggi - <i>Metodo index()</i>
+  -	<b>GET | /api/conversations/{id}</b> - Restituisce i dettagli di una conversazione specifica, inclusi i partecipanti e i messaggi - <i>Metodo show()</i><br /><br />
+  3. <b>Risorsa: Message</b>
+  - <b>POST | /api/messages</b> - Crea un nuovo messaggio in una conversazione - <i>Metodo store() tramite <b>evento Pusher</b></i>
+  - <b>GET | /api/messages/{conversationId}</b> - Restituisce tutti i messaggi di una conversazione - <i>Metodo index()</i>
+  <br />
+  <br />
+  <br />
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+  - Per fare il test delle API in locale tramite <b>Postman</b> è necessario <b>Postman Agent</b> e nel caso si verifichino problemi col certificato SSL bisogna aggiungere questo file al web server locale: [https://curl.se/ca/cacert.pem](https://curl.se/ca/cacert.pem)
+  - <b>Esempio di test</b>: 
+    - http://127.0.0.1:8000/api/conversations 
+    - Metodo <b>POST</b>
+    - Body > Raw > JSON > `{ "conversation_id": 1, "message_content": "Ciao, come va?", "user_ids": [1, 2] }` > <b>SEND</b> <br /><br /><br />
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- L'evento di Pusher è configurato, ma al momento manca la ricezione sul front-end 

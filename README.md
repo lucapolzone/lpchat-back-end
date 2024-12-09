@@ -55,20 +55,21 @@ Pensata come un “Minimum Viable Product”, è un’app di messaggistica in te
 
 - Tramite il comando `php artisan make:request` ho aggiunto la validazione per la login dell'utente
 - Il database, tramite `Seeder`, è popolato con quattro utenti, due conversazioni e quattro messaggi.
-- È possibile testare queste <b>API resources:</b><br />
+- È possibile testare queste <b>API resources:</b><br /><br />
 
 
-  1. <b>Risorsa: User</b>
+  <b>1. Risorsa: User</b>
     -	<b>GET | /api/users</b> - Restituisce l'elenco di tutti gli utenti registrati - <i>Metodo index()</i>
     -	<b>GET | /api/users/{id}</b> - Mostra i dettagli di un utente specifico - <i>Metodo show()</i><br /><br />
-  2. <b>Risorsa: Conversation</b>
+  
+  <b>2. Risorsa: Conversation</b>
   -	<b>POST | /api/conversations</b> - Crea una nuova conversazione one-to-one - <i>Metodo store()</i>
   -	<b>GET | /api/conversations</b> - Restituisce i dettagli di tutte le conversazioni, inclusi i partecipanti e i messaggi - <i>Metodo index()</i>
   -	<b>GET | /api/conversations/{id}</b> - Restituisce i dettagli di una conversazione specifica, inclusi i partecipanti e i messaggi - <i>Metodo show()</i><br /><br />
-  3. <b>Risorsa: Message</b>
+  
+  <b>3. Risorsa: Message</b>
   - <b>POST | /api/messages</b> - Crea un nuovo messaggio in una conversazione - <i>Metodo store() tramite <b>evento Pusher</b></i>
   - <b>GET | /api/messages/{conversationId}</b> - Restituisce tutti i messaggi di una conversazione - <i>Metodo index()</i>
-  <br />
   <br />
   <br />
 

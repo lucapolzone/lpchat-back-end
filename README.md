@@ -3,6 +3,15 @@
 ## Descrizione
 Pensata come un “Minimum Viable Product”, è una web app di messaggistica in tempo reale con form di login, una dashboard dove vedere gli utenti registati e dove è possibile aprire una chat-room con loro. Nella dashboard è anche possibile vedere tramite notifica se ci sono messaggi ricevuti non ancora letti.
 
+## Indice
+
+- [Features](#features)
+- [Back-end](#back-end)
+- [Front-end](#front-end)
+- [Progettazione Database](#progettazione-database)
+- [Stato attuale del Back-end](#stato-attuale-del-back-end)
+- [Configurazione e inizializzazione](#configurazione-e-inizializzazione)
+
 
 ## Stack del progetto
 ![Laravel](./img_readme/laravel.svg)
@@ -50,13 +59,13 @@ Pensata come un “Minimum Viable Product”, è una web app di messaggistica in
 <img src="./img_readme/LPChat-DB.png" alt="LPChat-DB" width="800"/>
 
 
-## Stato attuale del progetto
+## Stato attuale del Back-end
 ![Work In Progress](./img_readme/work-in-progress.png)
 
 - Tramite il comando `php artisan make:request` ho aggiunto la validazione per la login dell'utente
 - Il database, tramite `Seeder`, è popolato con quattro utenti, due conversazioni e quattro messaggi.
+- L'evento di Pusher è configurato, ma al momento manca la ricezione sul front-end 
 - È possibile testare queste <b>API resources:</b><br /><br />
-
 
   <b>1. Risorsa: User</b>
     -	<b>GET | /api/users</b> - Restituisce l'elenco di tutti gli utenti registrati - <i>Metodo index()</i>
@@ -69,7 +78,7 @@ Pensata come un “Minimum Viable Product”, è una web app di messaggistica in
   
   <b>3. Risorsa: Message</b>
   - <b>POST | /api/messages</b> - Crea un nuovo messaggio in una conversazione - <i>Metodo store() tramite <b>evento Pusher</b></i>
-  - <b>GET | /api/messages/{conversationId}</b> - Restituisce tutti i messaggi di una conversazione - <i>Metodo index()</i>
+  - <b>GET | /api/messages/{conversationId}</b> - Restituisce messaggi e utenti  di una conversazione - <i>Metodo index()</i>
   <br />
   <br />
 
@@ -79,8 +88,6 @@ Pensata come un “Minimum Viable Product”, è una web app di messaggistica in
     - Metodo <b>POST</b>
     - Body > Raw > JSON > `{ "conversation_id": 1, "message_content": "Ciao, come va?", "user_ids": [1, 2] }` > <b>SEND</b> <br /><br /><br />
 
-
-- L'evento di Pusher è configurato, ma al momento manca la ricezione sul front-end 
 
 <br />
 

@@ -83,9 +83,10 @@ Pensata come un “Minimum Viable Product”, è un’app di messaggistica in te
 - L'evento di Pusher è configurato, ma al momento manca la ricezione sul front-end 
 
 <br />
-<br />
 
 # Configurazione e inizializzazione
+<br />
+
 
 1. **Clona la repository e naviga nella cartella del progetto:**
 

@@ -1,7 +1,7 @@
 # LPChat
 
 ## Descrizione
-Pensata come un “Minimum Viable Product”, è un’app di messaggistica in tempo reale con form di login, una dashboard dove vedere gli utenti registati e dove è possibile aprire una chat-room con loro. Nella dashboard è anche possibile vedere tramite notifica se ci sono messaggi ricevuti non ancora letti.
+Pensata come un “Minimum Viable Product”, è una web app di messaggistica in tempo reale con form di login, una dashboard dove vedere gli utenti registati e dove è possibile aprire una chat-room con loro. Nella dashboard è anche possibile vedere tramite notifica se ci sono messaggi ricevuti non ancora letti.
 
 
 ## Stack del progetto

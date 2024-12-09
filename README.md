@@ -86,9 +86,9 @@ Pensata come un “Minimum Viable Product”, è una web app di messaggistica in
   - <b>Esempio di test</b>: 
     - http://127.0.0.1:8000/api/conversations 
     - Metodo <b>POST</b>
-    - Body > Raw > JSON > `{ "conversation_id": 1, "message_content": "Ciao, come va?", "user_ids": [1, 2] }` > <b>SEND</b> <br /><br /><br />
+    - Body > Raw > JSON > `{ "conversation_id": 1, "message_content": "Ciao, come va?", "user_ids": [1, 2] }` > <b>SEND</b> 
 
-
+<br />
 <br />
 
 # Configurazione e inizializzazione

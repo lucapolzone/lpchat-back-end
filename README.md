@@ -100,7 +100,14 @@ Pensata come un “Minimum Viable Product”, è un’app di messaggistica in te
    composer install
    ```
 
-3. **Per avviare il progetto in modalità di sviluppo, esegui:**
+3. **Avvia Migrazioni e Seeder**
+
+   ```sh
+   php artisan migrate
+   php artisan db:seed
+   ```
+
+4. **Per avviare il progetto in modalità di sviluppo, esegui:**
 
    ```sh
    php artisan serve

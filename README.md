@@ -81,3 +81,27 @@ Pensata come un “Minimum Viable Product”, è un’app di messaggistica in te
 
 
 - L'evento di Pusher è configurato, ma al momento manca la ricezione sul front-end 
+
+<br />
+<br />
+
+# Configurazione e inizializzazione
+
+1. **Clona la repository e naviga nella cartella del progetto:**
+
+   ```sh
+   cd lpchat-back-end
+   ```
+
+2. **Installa le dipendenze:**
+
+   ```sh
+   composer install
+   ```
+
+3. **Per avviare il progetto in modalità di sviluppo, esegui:**
+
+   ```sh
+   php artisan serve
+   ```
+   Questo comando avvierà il server di sviluppo e permetterà le chiamate API.

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\ConversationResource;
 use App\Models\Conversation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ConversationController extends Controller
 {
@@ -15,11 +16,17 @@ class ConversationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        /*
         $conversations = Conversation::with(['users', 'messages'])->get(); // Carica utenti e messaggi
         // $conversations = Conversation::all();  // Puoi usare un filtro per restituire solo le conversazioni dell'utente loggato
         $response = response()->json(ConversationResource::collection($conversations));
         return $response;
+        */
+        $user = Auth::user();
+        $conversations = $user->conversations()->with('users', 'messages')->get();
+    
+        return response()->json($conversations);
     }
 
     /**

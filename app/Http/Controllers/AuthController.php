@@ -56,4 +56,13 @@ class AuthController extends Controller
 
         return response()->json(['message' => 'Credenziali non valide'], 401);
     }
+
+    public function logout(Request $request)
+    {
+        // Revoca il token utilizzato per autenticare la richiesta corrente
+        $request->user()->currentAccessToken()->delete();
+
+        return response()->json(['message' => 'Logout effettuato con successo'], 200);
+    }
+
 }

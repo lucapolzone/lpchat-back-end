@@ -38,12 +38,11 @@ Route::get('/messages/{conversationId}', [MessageController::class, 'index']);  
 // Route::post('/login', [AuthController::class, 'login']);
 Route::post('/login', [AuthController::class, 'login'])->name('api.login');
 
-// Route::get('/login', function () {
-//     abort(405, 'Method Not Allowed');
-// });
+
 
 
 Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/users', [UserController::class, 'index']);
     Route::get('/users/{id}', [UserController::class, 'show']);
     Route::get('/conversations', [ConversationController::class, 'index']);
